@@ -1,0 +1,18 @@
+[
+    {
+        "caption": "View Cheat Sheets",
+        "mnemonic": "f",
+        "id": "view_cheat_sheets",
+        "children":
+        [
+            {
+                "command": "view_cheat_sheets",
+                "caption": "Show Cheat Sheets"
+            }
+        ]
+    },
+    {
+        "caption": "-",
+        "id": "separator"
+    }
+]

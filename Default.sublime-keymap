@@ -1,0 +1,3 @@
+[
+    { "keys": [ "ctrl+shift+r", "ctrl+shift+t" ], "command": "view_cheat_sheets" }
+]
