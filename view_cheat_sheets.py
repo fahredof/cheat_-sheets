@@ -10,7 +10,7 @@ class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
     def second_pop_up_window(self, edit):
         self.link_to_path = edit
         content = self.topic()
-        self.view.show_popup(content, sublime.HTML, location=-1, max_height=2000, on_navigate=self.insert_code)
+        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 600, max_height=600, on_navigate=self.insert_code)
 
     def main_page(self):
         resources = sublime.find_resources("main.html")
@@ -24,7 +24,13 @@ class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
             path = self.first_link
         elif self.link_to_path == str(2):
             path = self.second_link
-
+        elif self.link_to_path == str(3):
+            path = self.third_link
+        elif self.link_to_path == str(4):
+            path = self.fourth_link
+        elif self.link_to_path == str(5):
+            path = self.fifth_link
+            
         resources = sublime.find_resources(path)
         content = sublime.load_resource(resources[0])
         return content
@@ -35,8 +41,7 @@ class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
 
     link_to_path = 0
     first_link = "base_types.html"
-    second_link = "image2.html"
-
-
-
-
+    second_link = "сontainer_types.html"
+    third_link = "name.html"
+    fourth_link = "transformations.html"
+    fifth_link = "assignment_to_variables.html"
