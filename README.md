@@ -4,8 +4,8 @@ Cheat Sheets плагин был создан для быстрого испол
 
 Главное меню:
 
-![Github](https://github.com/fahredof/cheat_sheets/blob/master/Image/main.png)
+![Github](https://github.com/fahredof/cheat_sheets/blob/master/Image/main%20page.png)
 
 Описание топика:
 
-![Github](https://github.com/fahredof/cheat_sheets/blob/master/Image/topics.png)
+![Github](https://github.com/fahredof/cheat_sheets/blob/master/Image/current_topic.png)
