@@ -2,28 +2,37 @@ import sublime
 import sublime_plugin
 
 class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
-
+    
     def run(self, edit):
-        content = self.start_page()
-        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 2000 , max_height=2000, on_navigate=self.haha)
-        edit = 0
+        content = self.first_page()
+        Text = self.view.show_popup(content, sublime.HTML, location=-1, max_width = 2000 , max_height=2000, on_navigate=self.first_pop_up_window)
+        Another = self.view.show_popup(content, sublime.HTML, location=-1, max_width = 2000 , max_height=2000, on_navigate=self.second_pop_up_window)
+        items = [Text, Another] 
+        self.view.show_popup_menu(items, self.on_done)
 
-    def haha(self, edit):
+    def on_done(self, result):
+        print(result)
+
+
+    def choice(self, edit):
         content = self.main_page()
         if edit == str(1):
             self.view.show_popup(content, sublime.HTML, location=-1, max_width = 2000 , max_height=2000, on_navigate=self.first_pop_up_window)
+        
         elif edit == str(2):
             self.view.show_popup(content, sublime.HTML, location=-1, max_width = 2000 , max_height=2000, on_navigate=self.second_pop_up_window)
 
+
     def first_pop_up_window(self, edit):
+        
         self.link_to_path = edit
         content = self.first_page()
-        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 600, max_height=600, on_navigate=self.haha)
+        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 600, max_height=600, on_navigate=self.run)
         
     def second_pop_up_window(self, edit):
         self.link_to_path = edit
         content = self.second_page()
-        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 600, max_height=600, on_navigate=self.haha)
+        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 600, max_height=600, on_navigate=self.run)
 
     def start_page(self):
         resources = sublime.find_resources("start.html")
@@ -122,6 +131,8 @@ class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
     eighth_link = "8_instruction_blocks.html"
     ninth_link = "9_math.html"
     tenth_link = "10_conditional_operator.html"
+
+    how_window = 0
 
 
 
