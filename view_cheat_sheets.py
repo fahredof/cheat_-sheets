@@ -1,5 +1,6 @@
 import sublime 
 import sublime_plugin
+import webbrowser
 
 class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
 
@@ -10,12 +11,16 @@ class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
     def second_pop_up_window(self, edit):
         self.link_to_path = edit
         content = self.topic()
-        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 600, max_height=600, on_navigate=self.run)
+
+        self.view.show_popup(content, sublime.HTML, location=-1, max_width = 600, max_height=600, on_navigate=self.link_in_topic)
+
 
     def main_page(self):
         resources = sublime.find_resources("main.html")
         content = sublime.load_resource(resources[0])
         return content
+
+
     
     def topic(self):
         path = ""
@@ -39,11 +44,22 @@ class ViewCheatSheetsCommand(sublime_plugin.TextCommand):
         elif self.link_to_path == str(9):
             path = self.ninth_link
         elif self.link_to_path == str(10):
-            path = self.tenth_link
+            webbrowser.open('https://www.pornhub.com')
+
             
         resources = sublime.find_resources(path)
         content = sublime.load_resource(resources[0])
         return content
+
+    def link_in_topic(self, edit):
+        if edit == str(1):
+            content = main_page
+            self.view.show_popup(content, sublime.HTML, location=-1, max_width = 2000 , max_height=2000, on_navigate=self.run)
+        else:
+             webbrowser.open('https://www.pornhub.com')
+
+
+
 
     first_link = "1_base_types.html"
     second_link = "2_сontainer_types.html"
